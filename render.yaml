@@ -8,6 +8,8 @@ services:
     envVars:
       - key: SS_DATABASE_PATH
         value: /var/data/ss_database.db
+      - key: SECRET_KEY
+        generateValue: true
       - key: SS_ADMIN_USERNAME
         sync: false
       - key: SS_ADMIN_PASSWORD

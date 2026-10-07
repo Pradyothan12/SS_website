@@ -17,6 +17,10 @@
         View students who have registered to join the Struggle of Student community.
     </p>
 
+    <form method="POST" action="{{ url_for('admin_logout') }}">
+        <button type="submit" class="btn secondary">LOG OUT</button>
+    </form>
+
     <div class="admin-stats">
         <div class="stat-card">
             <span>Total Registrations</span>

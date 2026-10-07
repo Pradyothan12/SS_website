@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login - SS{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-content">
+
+        <p class="small-title">SS ADMINISTRATION</p>
+
+        <h1>
+            ADMIN
+            <span>LOGIN</span>
+        </h1>
+
+        <h2>Access the SS student dashboard.</h2>
+
+        <div class="form-container">
+
+            {% if error %}
+            <p class="login-error">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST" action="{{ url_for('admin') }}">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter admin username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter admin password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn primary">
+                    LOGIN
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

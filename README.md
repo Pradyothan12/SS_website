@@ -7,7 +7,7 @@ A student community website built with Flask. It includes community information 
 - Home, About, Opportunities, Talent, Skills, Learning, Campus Ambassador, Roles, Events, Gallery, Career, and Contact pages
 - Responsive navigation and the SS red and black visual theme
 - Student registration form backed by SQLite
-- Admin dashboard at `/admin`, protected with HTTP Basic Authentication
+- Admin dashboard at `/admin`, protected with an environment-configured login
 - Custom 404 page
 
 ## Run locally
@@ -18,14 +18,12 @@ Use Python 3.10 or newer.
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-export SS_ADMIN_USERNAME="admin"
-export SS_ADMIN_PASSWORD="choose-a-long-private-password"
 python app.py
 ```
 
-Open `http://127.0.0.1:5000`. The database is created automatically in the project directory. On Windows PowerShell, set the two admin variables with `$env:SS_ADMIN_USERNAME="admin"` and `$env:SS_ADMIN_PASSWORD="choose-a-long-private-password"` before running the app.
+Open `http://127.0.0.1:5000`. The database is created automatically in the project directory. Local runs default to username `admin` and password `ss-local-admin-2026`. You can override them by setting `SS_ADMIN_USERNAME` and `SS_ADMIN_PASSWORD` before starting the app. Production deployments require `SECRET_KEY`, `SS_ADMIN_USERNAME`, and `SS_ADMIN_PASSWORD`; Render generates the session key from `render.yaml` and prompts for the admin credentials.
 
-The admin dashboard is at `http://127.0.0.1:5000/admin`. Set both admin environment variables before visiting it. Do not put a real password in source code or commit it to GitHub.
+The admin login is at `http://127.0.0.1:5000/admin`. The local default is for development only. Set a unique password for any public deployment and do not commit credentials to GitHub. Render starts the app with Gunicorn bound to its assigned port and stores the SQLite database on its persistent disk.
 
 ## Publish the source on GitHub
 
