@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Registration Successful - SS{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-content">
+
+        <p class="small-title">REGISTRATION COMPLETE</p>
+
+        <h1>
+            WELCOME
+            <span>{{ name }}</span>
+        </h1>
+
+        <h2>
+            You are now part of
+            <br>
+            Struggle of Student.
+        </h2>
+
+        <p>
+            Thank you for joining SS. Your journey to showcase your talent,
+            build your skills and discover new opportunities starts here.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="/" class="btn primary">BACK TO HOME</a>
+            <a href="/opportunities" class="btn secondary">EXPLORE OPPORTUNITIES</a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ss-community-website
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: SS_DATABASE_PATH
+        value: /var/data/ss_database.db
+      - key: SS_ADMIN_USERNAME
+        sync: false
+      - key: SS_ADMIN_PASSWORD
+        sync: false
+    disk:
+      name: ss-registrations
+      mountPath: /var/data
+      sizeGB: 1

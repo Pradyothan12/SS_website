@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - SS{% endblock %}
+
+{% block content %}
+
+<section class="intro admin-section">
+
+    <p class="section-label">SS ADMIN</p>
+
+    <h2>
+        STUDENT
+        <span>REGISTRATIONS</span>
+    </h2>
+
+    <p>
+        View students who have registered to join the Struggle of Student community.
+    </p>
+
+    <div class="admin-stats">
+        <div class="stat-card">
+            <span>Total Registrations</span>
+            <h3>{{ students|length }}</h3>
+        </div>
+    </div>
+
+    <div class="table-container">
+
+        <table class="admin-table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>College</th>
+                    <th>Year</th>
+                    <th>Interest</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Registered</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for student in students %}
+
+                <tr>
+                    <td>{{ student["id"] }}</td>
+                    <td>{{ student["name"] }}</td>
+                    <td>{{ student["college"] }}</td>
+                    <td>{{ student["year"] }}</td>
+                    <td>
+                        <span class="interest-badge">
+                            {{ student["interest"] }}
+                        </span>
+                    </td>
+                    <td>{{ student["email"] }}</td>
+                    <td>{{ student["phone"] }}</td>
+                    <td>{{ student["created_at"] }}</td>
+                </tr>
+
+                {% else %}
+
+                <tr>
+                    <td colspan="8" class="empty-table">
+                        No student registrations yet.
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Join SS - Struggle of Student{% endblock %}
+
+{% block content %}
+
+<section class="intro">
+    <p class="section-label">JOIN THE COMMUNITY</p>
+
+    <h2>
+        BECOME PART OF
+        <span>SS</span>
+    </h2>
+
+    <p>
+        Join the Struggle of Student community, showcase your talent,
+        develop your skills, take opportunities and grow with other students.
+    </p>
+
+    <div class="form-container">
+
+        <form method="POST" action="/register">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="college">College Name</label>
+                <input type="text" id="college" name="college" placeholder="Enter your college name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year of Study</label>
+                <select id="year" name="year" required>
+                    <option value="">Select your year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="interest">Area of Interest</label>
+                <select id="interest" name="interest" required>
+                    <option value="">Select an area</option>
+                    <option value="Talent">Talent</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Events">Events</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Photography">Photography & Editing</option>
+                    <option value="Anchoring">Anchoring</option>
+                    <option value="Management">Management</option>
+                    <option value="Documentation">Documentation</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Tell Us About Yourself</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about your skills, interests or talent"></textarea>
+            </div>
+
+            <button type="submit" class="btn primary">JOIN SS</button>
+
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}
